@@ -66,35 +66,35 @@ func TestStartAndDestination(t *testing.T) {
 
 	result = StartAndDestination(FlightPaths{{"A", "B"}, {"B", "C"}, {"C", "D"}, {"D", "A"}, {"J", "K"}})
 	if result[0] != "" || result[1] != "" {
-		t.Errorf("Multiple airports, disjoint: Expected %s, got %v", "['','']", result)
+		t.Errorf("Multiple airports, disjoint test 1: Expected %s, got %v", "['','']", result)
 	} else {
-		fmt.Printf("Multiple airports, disjoint: Got %v\n", result)
+		fmt.Printf("Multiple airports, disjoint test 1: Got %v\n", result)
 	}
 
 	result = StartAndDestination(FlightPaths{{"A", "B"}, {"B", "Z"}, {"B", "C"}, {"C", "D"}, {"D", "A"}, {"J", "K"}})
 	if result[0] != "" || result[1] != "" {
-		t.Errorf("Multiple airports, disjoint: Expected %s, got %v", "['','']", result)
+		t.Errorf("Multiple airports, disjoint test 2: Expected %s, got %v", "['','']", result)
 	} else {
-		fmt.Printf("Multiple airports, disjoint: Got %v\n", result)
+		fmt.Printf("Multiple airports, disjoint test 2: Got %v\n", result)
 	}
 
-	result = StartAndDestination(FlightPaths{{"B", "C"}, {"C", "D"}, {"A", "B"}, {"D", "A"}, {"J", "K"}})
-	if result[0] != "" || result[1] != "" {
-		t.Errorf("Start is in the middle: Expected %s, got %v", "['','']", result)
+	result = StartAndDestination(FlightPaths{{"B", "C"}, {"C", "D"}, {"A", "B"}, {"D", "E"}})
+	if result[0] != "A" || result[1] != "E" {
+		t.Errorf("Start is in the middle: Expected %s, got %v", "[A,E]", result)
 	} else {
 		fmt.Printf("Start is in the middle: Got %v\n", result)
 	}
 
-	result = StartAndDestination(FlightPaths{{"B", "C"}, {"C", "D"}, {"D", "A"}, {"J", "K"},{"A", "B"}})
-	if result[0] != "" || result[1] != "" {
-		t.Errorf("Start is on the end: Expected %s, got %v", "['','']", result)
+	result = StartAndDestination(FlightPaths{{"B", "C"}, {"C", "D"}, {"D", "E"}, {"A", "B"}})
+	if result[0] != "A" || result[1] != "E" {
+		t.Errorf("Start is on the end: Expected %s, got %v", "[A,E]", result)
 	} else {
 		fmt.Printf("Start is on the end: Got %v\n", result)
 	}
 
-	result = StartAndDestination(FlightPaths{{"B", "C"}, {"C", "D"}, {"D", "A"}, {"J", "K"},{"A", "B"}})
-	if result[0] != "" || result[1] != "" {
-		t.Errorf("Start and end swapped: Expected %s, got %v", "['','']", result)
+	result = StartAndDestination(FlightPaths{{"B", "C"}, {"C", "D"}, {"D", "E"}, {"A", "B"}})
+	if result[0] != "A" || result[1] != "E" {
+		t.Errorf("Start and end swapped: Expected %s, got %v", "[A,E]", result)
 	} else {
 		fmt.Printf("Start and end swapped: Got %v\n", result)
 	}
