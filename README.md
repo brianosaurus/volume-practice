@@ -2,6 +2,7 @@
 
 To use
 ```
+go get
 go run .
 ```
 
