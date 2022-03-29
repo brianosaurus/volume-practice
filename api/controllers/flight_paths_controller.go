@@ -81,7 +81,7 @@ func StartAndDestination(flightPaths FlightPaths) [2]string {
 	for ; i < len(flightPaths); i++ {
 		curr := sortedFlightPaths[len(sortedFlightPaths)-1]
 		if flight, ok := startingAirports[curr[1]]; ok && 
-			(flight[0] != sortedFlightPaths[0][0] && 
+			(flight[0] != sortedFlightPaths[0][0] &&  // this check is for loops
 			flight[1] != sortedFlightPaths[0][1]) {
 			// if there is a flight that starts at the ending point of this flight
 			sortedFlightPaths = append(sortedFlightPaths, flight)
@@ -94,7 +94,7 @@ func StartAndDestination(flightPaths FlightPaths) [2]string {
 	for ; i < len(flightPaths); i++ {
 		curr := sortedFlightPaths[0]
 		if flight, ok := endingAirports[curr[0]]; ok &&
-			(flight[0] != sortedFlightPaths[len(sortedFlightPaths)-1][0] && 
+			(flight[0] != sortedFlightPaths[len(sortedFlightPaths)-1][0] && // this check is for loops
 			flight[1] != sortedFlightPaths[len(sortedFlightPaths)-1][1]) {
 			sortedFlightPaths = append(FlightPaths{flight}, sortedFlightPaths...)
 		} else {
