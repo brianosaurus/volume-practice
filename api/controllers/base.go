@@ -18,6 +18,7 @@ var errList = make(map[string]string)
 
 //Initialize connects to various services
 func (server *Server) Initialize() {
+	fmt.Println("XXXXXXXXXXXX")
 	var err error
 
 	// If you are using mysql, i added support for you here(dont forgot to edit the .env file)

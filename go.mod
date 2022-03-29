@@ -17,7 +17,3 @@ require (
 	github.com/brianosaurs/volume-practice/api/responses v0.0.0
 	github.com/brianosaurs/volume-practice/api/controllers v0.0.0
 )
-
-replace github.com/brianosaurus/volume-practice/api/middlewares v0.0.0 => ./api/middlewares
-replace github.com/brianosaurus/volume-practice/api/responses v0.0.0 => ./api/responses
-replace github.com/brianosaurus/volume-practice/api/controllers v0.0.0 => ./api/controllers

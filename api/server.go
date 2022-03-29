@@ -28,11 +28,7 @@ func Run() {
 		fmt.Println("We are getting values")
 	}
 
-	server.Initialize(os.Getenv("DB_DRIVER"), os.Getenv("DB_USER"), os.Getenv("DB_PASSWORD"), 
-		os.Getenv("DB_PORT"), os.Getenv("DB_HOST"), os.Getenv("DB_NAME"))
-
-	// This is for testing, when done, do well to comment
-	// seed.Load(server.DB)
+	server.Initialize()
 
 	apiPort := ":8080"
 	fmt.Printf("Listening to port %s\n", apiPort)
